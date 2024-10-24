@@ -155,6 +155,10 @@ consoleintr(int c)
       consputc(BACKSPACE);
     }
     break;
+   case C('L'):
+     printf("\e[1;1H\e[2J");
+     printf("$ ");
+     break;
   default:
     if(c != 0 && cons.e-cons.r < INPUT_BUF_SIZE){
       c = (c == '\r') ? '\n' : c;
